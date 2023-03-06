@@ -51,3 +51,10 @@ This project is licensed under the Grandida License.
 Hat tip to anyone whose advice was used as inspiration.
 
 **Note:** This readme is written with the assumption that you are familiar with the technologies and libraries used in this project. If you are not familiar with them, it is recommended that you take some time to familiarize yourself with them before diving into the project.
+
+## Contributors
+
+Thank you to the following contributors who have helped with this project:
+
+- [Kazeem Dosunnmu](https://github.com/thedoskit)
+- [Akinfenwa Gabriel](https://github.com/)
