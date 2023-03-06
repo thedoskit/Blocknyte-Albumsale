@@ -10,7 +10,7 @@ const notOk = (res) => {
 //   res.status(200).json({ url: `https://nftstorage.link/ipfs/${process.env.REACT_APP_CID}/download`})
 // }
 const ok = (res) => {
-  const downloadLink = `https://nftstorage.link/ipfs/bafybeigb6qlwbcoal2u6kefy3fsgenshc3235iczn3yycy2tpotcxr5ql4`;
+  const downloadLink = "https://nftstorage.link/ipfs/bafybeigb6qlwbcoal2u6kefy3fsgenshc3235iczn3yycy2tpotcxr5ql4";
   res.status(200).json({ downloadLink });
 }
 
