@@ -6,8 +6,12 @@ const notOk = (res) => {
 }
 
 // function to return a 200 response with the download url
+// const ok = (res) => {
+//   res.status(200).json({ url: `https://nftstorage.link/ipfs/${process.env.REACT_APP_CID}/download`})
+// }
 const ok = (res) => {
-  res.status(200).json({ url: `https://nftstorage.link/ipfs/${process.env.REACT_APP_CID}`})
+  const downloadLink = `https://nftstorage.link/ipfs/${process.env.REACT_APP_CID}/download`;
+  res.status(200).json({ downloadLink });
 }
 
 export default async function handler(req, res) {
