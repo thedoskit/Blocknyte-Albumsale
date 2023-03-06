@@ -1,0 +1,28 @@
+{
+  "name": "prism",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.1.7",
+    "abstract-level": "^1.0.3",
+    "abstract-leveldown": "^7.2.0",
+    "dotenv": "^16.0.3",
+    "levelup": "^5.1.1",
+    "next": "11.1.0",
+    "npx": "^10.2.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "three": "^0.132.0",
+    "web3": "^1.5.2"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.0"
+  }
+}
