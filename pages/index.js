@@ -102,9 +102,10 @@ const connect = function () {
         })
     
         const json = await response.json()
+        console.log('json:', json);
+
 
         // Redirecting the user to the download URL
-        console.log('json:', json);
         window.location.href = json.url
       } catch (e) {
         console.error('Error:', response.statusText);
