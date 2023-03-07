@@ -30,11 +30,16 @@ export default async function handler(req, res) {
         url: fileUrl,
         method: 'GET',
         responseType: 'blob', // set the response type to blob to download binary data
+      }).catch((error) => {
+        console.error('Error:', error);
+        res.status(403).json({ error: 'Access denied.' });
       });
 
-      // set the Content-Disposition header to force download the file with a specific name
-      res.setHeader('Content-Disposition', 'attachment; filename=download.zip');
-      res.send(response.data);
+      if (response) {
+        // set the Content-Disposition header to force download the file with a specific name
+        res.setHeader('Content-Disposition', 'attachment; filename=download.zip');
+        res.send(response.data);
+      }
 
     } else {
       res.status(403).json({ error: 'Unauthorized access.' });
@@ -45,6 +50,7 @@ export default async function handler(req, res) {
     res.status(403).json({ error: 'Access denied.' });
   }
 }
+
 
 
 
