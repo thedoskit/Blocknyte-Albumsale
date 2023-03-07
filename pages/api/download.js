@@ -33,14 +33,17 @@ export default async function handler(req, res) {
     // check if the account has access to the download using the contract's hasAccess method
     contract.methods.hasAccess().call({ from: account })
       .then(function (data) {
+        console.log('data:', data);
         if (data) {
           ok(res)
         } else {
           notOk(res)
         }
+        
       })
 
   } catch (e) {
+    console.error('Error:', error);
     // catch any errors and return a 403 response
     notOk(res)
   }
