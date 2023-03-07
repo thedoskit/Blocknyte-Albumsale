@@ -27,16 +27,22 @@ export default function BlocknyteSale() {
   // Function to connect the page to the user's wallet
 const connect = function () {
   if (typeof window.ethereum === 'undefined') {
-    alert('Please install a wallet to use this feature.')
+    alert('Please install a wallet to use this website.')
     return
   }
   
   // Connecting to the user's wallet and setting the accounts state variable
   window.ethereum
-    .request({ method: "eth_requestAccounts" })
-    .then(setAccounts)
+  .request({ method: "eth_requestAccounts" })
+  .then(setAccounts)
+  .catch(error => {
+    if (error.code === 4001) {
+      alert("You need to allow access to your account in order to use this feature.");
+    } else {
+      alert("An error occurred while trying to connect to your wallet.");
+    }
+  });
 }
-
   // Function to check if the user has access to purchase
   const checkAccess = function () {
     // Checking if the user has access to purchase and setting the hasAccess state variable accordingly
