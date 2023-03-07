@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     contract.methods.hasAccess().call({ from: account })
       .then(async function (data) {
         if (data) {
-          const fileUrl = "https://nftstorage.link/ipfs/bafybeigb6qlwbcoal2u6kefy3fsgenshc3235iczn3yycy2tpotcxr5ql4/";
+          const fileUrl = `https://nftstorage.link/ipfs/bafybeigb6qlwbcoal2u6kefy3fsgenshc3235iczn3yycy2tpotcxr5ql4`;
 
           // use Axios to download the file
           const response = await axios({
