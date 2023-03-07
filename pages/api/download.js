@@ -31,7 +31,7 @@ export default async function handler(req, res) {
           });
 
           // set the Content-Disposition header to force download the file with a specific name
-          res.setHeader('Content-Disposition', 'attachment; filename=filename.extension');
+          res.setHeader('Content-Disposition', 'attachment; blocknytes.zip');
 
           // send the downloaded file as a response
           res.send(response.data);
