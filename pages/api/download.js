@@ -32,28 +32,24 @@ export default async function handler(req, res) {
           });
 
           // set the Content-Disposition header to force download the file with a specific name
-          if (response) {
+          if (response && response.data) {
             res.setHeader('Content-Disposition', 'attachment; filename=download.zip');
             res.send(response.data);
           } else {
             res.status(500).json({ error: 'Error downloading file.' });
           }
-          //res.setHeader('Content-Disposition', 'attachment; filename=download.zip');
-
-          // send the downloaded file as a response
-          res.send(response.data);
-
         } else {
           res.status(403).json({ error: 'Unauthorized access.' });
         }
       })
 
   } catch (e) {
-    console.error('Error:', error);
+    console.error('Error:', e);
     // catch any errors and return a 403 response
     res.status(403).json({ error: 'Access denied.' });
   }
 }
+
 
 
 
