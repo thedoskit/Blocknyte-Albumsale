@@ -18,35 +18,29 @@ export default async function handler(req, res) {
     const account = web3.eth.accounts.recover(sharedMessage, body.signature)
 
     // check if the account has access to the download using the contract's hasAccess method
-    contract.methods.hasAccess().call({ from: account })
-      .then(async function (data) {
-        console.log('data:', data);
-        if (data) {
-          const fileUrl = `https://nftstorage.link/ipfs/bafybeigb6qlwbcoal2u6kefy3fsgenshc3235iczn3yycy2tpotcxr5ql4`;
+    const data = await contract.methods.hasAccess().call({ from: account });
 
-          // use Axios to download the file
-          const response = await axios({
-            url: fileUrl,
-            method: 'GET',
-            responseType: 'blob', // set the response type to blob to download binary data
-          });
+    console.log('data:', data);
 
-          // set the Content-Disposition header to force download the file with a specific name
-          if (response && response.data) {
-            res.setHeader('Content-Disposition', 'attachment; filename=download.zip');
-            
-          } else {
-            res.status(500).json({ error: 'Error downloading file.' });
-          }
-          res.send(response.data);
-        } 
-        else {
-          res.status(403).json({ error: 'Unauthorized access.' });
-        }
-      })
+    if (data) {
+      const fileUrl = `https://nftstorage.link/ipfs/bafybeigb6qlwbcoal2u6kefy3fsgenshc3235iczn3yycy2tpotcxr5ql4`;
 
-  } catch (e) {
-    console.error('Error:', e);
+      // use Axios to download the file
+      const response = await axios({
+        url: fileUrl,
+        method: 'GET',
+        responseType: 'blob', // set the response type to blob to download binary data
+      });
+
+      // set the Content-Disposition header to force download the file with a specific name
+      res.setHeader('Content-Disposition', 'attachment; filename=download.zip');
+      res.send(response.data);
+
+    } else {
+      res.status(403).json({ error: 'Unauthorized access.' });
+    }
+  } catch (error) {
+    console.error('Error:', error);
     // catch any errors and return a 403 response
     res.status(403).json({ error: 'Access denied.' });
   }
