@@ -20,7 +20,6 @@ export default async function handler(req, res) {
     // check if the account has access to the download using the contract's hasAccess method
     const data = await contract.methods.hasAccess().call({ from: account });
 
-    console.log('data:', data);
 
     if (data) {
       const fileUrl = `https://nftstorage.link/ipfs/bafybeigb6qlwbcoal2u6kefy3fsgenshc3235iczn3yycy2tpotcxr5ql4`;
@@ -29,7 +28,7 @@ export default async function handler(req, res) {
       const response = await axios({
         url: fileUrl,
         method: 'GET',
-        responseType: 'blob', // set the response type to blob to download binary data
+        //responseType: 'blob', // set the response type to blob to download binary data
       }).catch((error) => {
         console.error('Error:', error);
         res.status(403).json({ error: 'Access denied.' });
