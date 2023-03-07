@@ -16,13 +16,26 @@ export default function BlocknyteSale() {
   const [totalSales, setTotalSales] = useState(0)
   const [hasAccess, setHasAccess] = useState(false)
 
+  // // Function to connect the page to the user's wallet
+  // const connect = function () {
+  //   // Connecting to the user's wallet and setting the accounts state variable
+  //   window.ethereum
+  //     .request({ method: "eth_requestAccounts" })
+  //     .then(setAccounts)
+  // }
+
   // Function to connect the page to the user's wallet
-  const connect = function () {
-    // Connecting to the user's wallet and setting the accounts state variable
-    window.ethereum
-      .request({ method: "eth_requestAccounts" })
-      .then(setAccounts)
+const connect = function () {
+  if (typeof window.ethereum === 'undefined') {
+    alert('Please install a wallet to use this feature.')
+    return
   }
+  
+  // Connecting to the user's wallet and setting the accounts state variable
+  window.ethereum
+    .request({ method: "eth_requestAccounts" })
+    .then(setAccounts)
+}
 
   // Function to check if the user has access to purchase
   const checkAccess = function () {
