@@ -20,6 +20,7 @@ export default async function handler(req, res) {
     // check if the account has access to the download using the contract's hasAccess method
     contract.methods.hasAccess().call({ from: account })
       .then(async function (data) {
+        console.log('data:', data);
         if (data) {
           const fileUrl = `https://nftstorage.link/ipfs/bafybeigb6qlwbcoal2u6kefy3fsgenshc3235iczn3yycy2tpotcxr5ql4`;
 
@@ -42,6 +43,7 @@ export default async function handler(req, res) {
       })
 
   } catch (e) {
+    console.error('Error:', error);
     // catch any errors and return a 403 response
     res.status(403).json({ error: 'Access denied.' });
   }
