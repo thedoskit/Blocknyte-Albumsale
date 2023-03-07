@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "export NODE_OPTIONS=--openssl-legacy-provider; next dev",
-    "build": "export NODE_OPTIONS=--openssl-legacy-provider; next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -12,6 +11,7 @@
     "@truffle/hdwallet-provider": "^2.1.7",
     "abstract-level": "^1.0.3",
     "abstract-leveldown": "^7.2.0",
+    "constants-browserify": "^1.0.0",
     "dotenv": "^16.0.3",
     "levelup": "^5.1.1",
     "next": "11.1.0",
