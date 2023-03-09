@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "export NODE_OPTIONS=--openssl-legacy-provider; next dev",
-    "build": "export NODE_OPTIONS=--openssl-legacy-provider; next build",
+    "dev": "next dev",
+    "build": "next build",
     "lint": "next lint"
   },
   "dependencies": {
@@ -15,15 +15,15 @@
     "constants-browserify": "^1.0.0",
     "dotenv": "^16.0.3",
     "levelup": "^5.1.1",
-    "next": "11.1.0",
+    "next": "^13.2.3",
     "npx": "^10.2.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "three": "^0.132.0",
     "web3": "^1.5.2"
   },
   "devDependencies": {
     "eslint": "7.32.0",
-    "eslint-config-next": "11.1.0"
+    "eslint-config-next": "^13.2.3"
   }
 }

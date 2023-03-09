@@ -108,7 +108,6 @@ const connect = function () {
         // Redirecting the user to the download URL
         window.location.href = json.url
       } catch (e) {
-        console.error('Error:', response.statusText);
         alert("Incorrect download URL.")
       }
     } else {
