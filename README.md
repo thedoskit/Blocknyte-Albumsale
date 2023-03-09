@@ -26,8 +26,8 @@ BlocknyteSale is a decentralized application that facilitates the sale of limite
 1. Make sure you have Node.js and npm installed on your machine. You can download Node.js [here](https://nodejs.org/en/download/).
 2. Clone the repository to your local machine using `git clone https://github.com/thedoskit/Blocknyte-Albumsale.git`
 3. Navigate to the project directory using `cd BlocknyteSale`
-4. Install all necessary dependencies by running `npm install`
-5. Start the development server by running `npm run dev`
+4. Install all necessary dependencies by running `yarn install`
+5. Start the development server by running `yarn dev`
 6. Open a web browser and navigate to `http://localhost:3000` to view the app
 
 ## Usage
