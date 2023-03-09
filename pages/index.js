@@ -93,20 +93,25 @@ const connect = function () {
     if (accounts.length > 0) {
       // Signing the shared message with the user's wallet
       const signature = await web3.eth.personal.sign(sharedMessage, accounts[0])
-
+  
       try {
         // Sending a request to the download API with the signed message and getting the download URL
-        const response = await fetch("/api/download", {
+        const response = await fetch("./api/download", {
           method: "POST",
           body: JSON.stringify({ "signature": signature })
         })
-    
-        const json = await response.json()
-        console.log('json:', json);
-
-
-        // Redirecting the user to the download URL
-        window.location.href = json.url
+  
+        if (response.ok) {
+          const blob = await response.blob();
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "blocknytes.zip";
+          a.click();
+          URL.revokeObjectURL(url);
+        } else {
+          alert("Incorrect download URL.");
+        }
       } catch (e) {
         alert("Incorrect download URL.")
       }
@@ -137,7 +142,7 @@ const connect = function () {
       <div className="label">Blocknytes Records</div>
       <Box />
       <header className="App-header">
-        <Image src={Logo} className="logo" />
+        <Image alt="" src={Logo} className="logo" />
   
         <h1>The debut album from Blocknytes</h1>
         <h2>{totalSales} / 100 sold</h2>
