@@ -4,6 +4,8 @@ BlocknyteSale is a decentralized application that facilitates the sale of limite
 
 [https://blocknyte-albumsale-2q94.vercel.app/](https://blocknyte-albumsale-2q94.vercel.app/)
 
+Goerli Smartconract Address : 0x9dfFf978F0391c4877d486152cD391C175A0a075
+
 **Note:** The live link above will give error because of the error from vercel servers. To fully test the Dapps, kindly find below steps to run the dapps locally.
 
 ## Technical Stack
