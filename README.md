@@ -60,5 +60,5 @@ Hat tip to anyone whose advice was used as inspiration.
 
 Thank you to the following contributors who have helped with this project:
 
-- [Kazeem Dosunnmu](https://github.com/thedoskit)
-- [Akinfenwa Gabriel](https://github.com/)
+- [Kazeem](https://github.com/thedoskit)
+- [AGabriel](https://github.com/)
